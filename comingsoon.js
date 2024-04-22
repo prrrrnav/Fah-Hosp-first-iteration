@@ -23,3 +23,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
     setInterval(changeImage, 3000);
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const emailForm = document.getElementById('emailForm');
+    const successMessage = document.getElementById('successMessage');
+
+    emailForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Disable form elements
+        const emailInput = document.getElementById('emailInput');
+        const submitButton = document.querySelector('.btn-subscribe');
+
+        emailInput.disabled = true;
+        submitButton.disabled = true;
+
+        // Show success message
+             setTimeout(function () {
+                successMessage.style.display = 'none';
+            }, 1500);
+        successMessage.style.display = 'block';
+    });
+    
+});
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+}, false);
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'C' || event.key === 'J'))) {
+        event.preventDefault();
+        alert('Inspect element is disabled.');
+    }
+}, false);
+
